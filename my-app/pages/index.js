@@ -30,11 +30,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
-      const whitelistContract = new Contract(
-        NFT_CONTRACT_ADDRESS,
-        abi,
-        signer
-      );
+      const whitelistContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
       // call the presaleMint from the contract, only whitelisted addresses would be able to mint
       const tx = await whitelistContract.presaleMint({
         // value signifies the cost of one crypto dev which is "0.01" eth.
@@ -60,11 +56,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
-      const whitelistContract = new Contract(
-        NFT_CONTRACT_ADDRESS,
-        abi,
-        signer
-      );
+      const whitelistContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
       // call the mint from the contract to mint the Crypto Dev
       const tx = await whitelistContract.mint({
         // value signifies the cost of one crypto dev which is "0.01" eth.
@@ -104,11 +96,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
-      const whitelistContract = new Contract(
-        NFT_CONTRACT_ADDRESS,
-        abi,
-        signer
-      );
+      const whitelistContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
       // call the startPresale from the contract
       const tx = await whitelistContract.startPresale();
       setLoading(true);
@@ -241,11 +229,11 @@ export default function Home() {
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
 
-    // If user is not connected to the Rinkeby network, let them know and throw an error
+    // If user is not connected to the Mumbai network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 4) {
-      window.alert("Change the network to Rinkeby");
-      throw new Error("Change network to Rinkeby");
+    if (chainId !== 80001) {
+      window.alert("Change the network to Mumbai");
+      throw new Error("Change network to Mumbai");
     }
 
     if (needSigner) {
@@ -264,7 +252,7 @@ export default function Home() {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
+        network: "Mumbai",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -337,8 +325,8 @@ export default function Home() {
       return (
         <div>
           <div className={styles.description}>
-            Presale has started!!! If your address is whitelisted, Mint a
-            Crypto Dev 🥳
+            Presale has started!!! If your address is whitelisted, Mint a Crypto
+            Dev 🥳
           </div>
           <button className={styles.button} onClick={presaleMint}>
             Presale Mint 🚀
