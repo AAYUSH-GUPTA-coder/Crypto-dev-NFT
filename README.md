@@ -6,7 +6,7 @@
 
 NFT Collection as its name suggested is Collection of 20 unique NFTs. The main difference is that I have created Whitelist contract earlier and using interface
 Whitelist Contract and NFT Collection interact with each other. Whitelisted Addresses will have the option of Pre-minting. 
-A special Presale feature only opened for them.
+A special Presale feature only opened for them
 
 During PreMint Phase
 ![1](https://user-images.githubusercontent.com/60979345/188275778-cff516b1-7881-4e57-aaad-135795c6c5a9.png)
